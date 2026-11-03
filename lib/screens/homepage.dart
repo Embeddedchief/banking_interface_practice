@@ -51,11 +51,7 @@ class _HomepageState extends State<Homepage>
               gradient: RadialGradient(
                 center: Alignment.topRight,
                 radius: 1.2,
-                colors: [
-                  Color(0xFF1F4D5A),
-                  Color(0xFF0D1A20),
-                  Colors.black,
-                ],
+                colors: [Color(0xFF1F4D5A), Color(0xFF0D1A20), Colors.black],
                 stops: [0.0, 0.45, 1.0],
               ),
             ),
@@ -65,10 +61,33 @@ class _HomepageState extends State<Homepage>
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Padding(
-                    padding: const EdgeInsets.all(20.0),
+                    padding: const EdgeInsets.all(22.0),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
+                        Row(
+                          children: [
+                            Container(
+                              height: 42,
+                              width: 42,
+                              decoration: BoxDecoration(
+                                color: Colors.white,
+                                shape: BoxShape.circle,
+                                image: DecorationImage(
+                                  image: AssetImage('assets/images/profile.png'),
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
+                            ),
+
+                            SizedBox(width: 300),
+
+                            Icon(CupertinoIcons.bell_fill, color: Colors.white),
+                          ],
+                        ),
+
+                        SizedBox(height: 70),
+
                         const Text(
                           'Total balance',
                           style: TextStyle(
@@ -100,14 +119,20 @@ class _HomepageState extends State<Homepage>
                           children: [
                             Container(
                               height: 35,
-                              width: 90,
+                              width: 100,
                               decoration: BoxDecoration(
                                 color: Colors.white,
                                 borderRadius: BorderRadius.circular(20),
                               ),
                               child: Row(
                                 children: [
-                                  const Icon(CupertinoIcons.arrow_left_circle_fill),
+                                  SizedBox(
+                                    width: 5,
+                                  ),
+                                  const Icon(
+                                    CupertinoIcons.arrow_left_circle_fill,
+                                  ),
+
                                   TextButton(
                                     onPressed: () {},
                                     child: const Text(
@@ -136,44 +161,74 @@ class _HomepageState extends State<Homepage>
                             ),
                           ],
                         ),
-                        const SizedBox(height: 80),
+
+                        const SizedBox(height: 60),
+
                         Container(
                           height: 70,
                           width: 450,
+                          padding: EdgeInsets.symmetric(
+                            horizontal: 16,
+                          ),
                           decoration: BoxDecoration(
                             color: Colors.white.withOpacity(0.08),
                             borderRadius: BorderRadius.circular(20),
+                          ),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text('Spending',
+                              style: TextStyle(
+                                color: Colors.white.withOpacity(0.5),
+                                fontSize: 13
+                              ),),
+                              Text('\$1,385',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
+                              ),),
+                            ],
                           ),
                         ),
                       ],
                     ),
                   ),
-                  const SizedBox(height: 35),
-                  Container(
-                    width: double.infinity,
-                    height: 400,
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(30),
-                    ),
-                    child: const Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Icon(CupertinoIcons.option),
-                            Text(
-                              'Transactions',
-                              style: TextStyle(color: Colors.grey, fontSize: 10),
-                            ),
-                            Icon(
-                              CupertinoIcons.search_circle,
-                              color: Colors.grey,
-                            ),
-                          ],
-                        ),
-                      ],
+
+                  const SizedBox(height: 30),
+
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Container(
+                      width: double.infinity,
+                      height: 400,
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(30),
+                      ),
+                      child: const Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Icon(CupertinoIcons.option),
+                              Text(
+                                'Transactions',
+                                style: TextStyle(
+                                  color: Colors.grey,
+                                  fontSize: 10,
+                                ),
+                              ),
+                              Icon(
+                                CupertinoIcons.search_circle,
+                                color: Colors.grey,
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ],
